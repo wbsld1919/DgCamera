@@ -4,7 +4,6 @@ import android.graphics.SurfaceTexture;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.TextureView;
-import android.view.View;
 
 import com.android.dange.modulecommon.Util.AppUtil;
 import com.android.dange.modulecommon.Util.LogUtil;
@@ -30,6 +29,8 @@ public class CameraActivity extends AppCompatActivity implements TextureView.Sur
 
     private String mUuid;
 
+    private volatile boolean mHasOpened;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +46,7 @@ public class CameraActivity extends AppCompatActivity implements TextureView.Sur
         mApplicationBase.addModule(getUuid(), ModuleManager.MODULE_UI);
 
         getModuleDeviceBase().open();
+        mHasOpened = true;
 
         setContentView(R.layout.activity_main);
 
@@ -62,12 +64,16 @@ public class CameraActivity extends AppCompatActivity implements TextureView.Sur
     @Override
     protected void onResume() {
         super.onResume();
+        if (!mHasOpened) {
+            getModuleDeviceBase().open();
+        }
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         getModuleDeviceBase().release();
+        mHasOpened = false;
     }
 
     @Override

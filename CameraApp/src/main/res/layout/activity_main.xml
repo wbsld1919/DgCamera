@@ -6,10 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".CameraActivity">
 
-    <com.android.dange.moduleui.preview.AutoFitTextureView
-        android:id="@+id/texture_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/topbar_height"/>
+
+        <com.android.dange.moduleui.preview.AutoFitTextureView
+            android:id="@+id/texture_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+    </LinearLayout>
 
 </FrameLayout>

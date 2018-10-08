@@ -17,7 +17,10 @@
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
 
-        <activity android:name=".CameraActivity">
+        <activity android:name=".CameraActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/NotitleTheme">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

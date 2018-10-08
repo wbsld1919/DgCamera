@@ -1,4 +1,6 @@
-include ':CameraApp', ':ModuleInterface', ':ModuleFilter'
+include ':CameraApp'
 include ':ModuleDevice'
 include ':ModuleCommon'
 include ':ModuleUI'
+include ':ModuleInterface'
+include ':ModuleFilter'
