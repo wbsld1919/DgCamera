@@ -1,0 +1,4 @@
+include ':CameraApp', ':ModuleInterface', ':ModuleFilter'
+include ':ModuleDevice'
+include ':ModuleCommon'
+include ':ModuleUI'
